@@ -1,16 +1,16 @@
 class Peek < Formula
   desc "Inline shell autocomplete daemon for package scripts and tools"
   homepage "https://github.com/simpel/peek"
-  version "1.2.2"
+  version "1.2.5"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/simpel/peek/releases/download/v1.2.2/peek-aarch64-apple-darwin.tar.gz"
-      sha256 "b6c5c748323d72c04cc245856852559ca26ae222175b8de8f1d4a4f932d45938"
+      url "https://github.com/simpel/peek/releases/download/v1.2.5/peek-aarch64-apple-darwin.tar.gz"
+      sha256 "a9c63250344d7a29e092bd6fe01f34bf94e4ea6f5629bec00e6a34749d765347"
     else
-      url "https://github.com/simpel/peek/releases/download/v1.2.2/peek-x86_64-apple-darwin.tar.gz"
-      sha256 "d547ff17a863b14c14c6c97b589cf8962ecd050ae8c70802a0b38ae117f969f2"
+      url "https://github.com/simpel/peek/releases/download/v1.2.5/peek-x86_64-apple-darwin.tar.gz"
+      sha256 "5d3585176f652ee97feebd022078c214e6a839b0dda13aa4d61ba0a904b7e263"
     end
   end
 
