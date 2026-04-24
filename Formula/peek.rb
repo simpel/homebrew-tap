@@ -1,16 +1,16 @@
 class Peek < Formula
   desc "Inline shell autocomplete daemon for package scripts and tools"
   homepage "https://github.com/simpel/peek"
-  version "1.2.0"
+  version "1.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/simpel/peek/releases/download/v1.2.0/peek-aarch64-apple-darwin.tar.gz"
-      sha256 "63309db5dc69cc1ad4ea78fbe0bd9ecb806ec16340194e2ded512b4067aca759"
+      url "https://github.com/simpel/peek/releases/download/v1.2.1/peek-aarch64-apple-darwin.tar.gz"
+      sha256 "c62af711a632ddd17c02db663e9b8b3b0c1b37f928bcb9dc031146a121ec4744"
     else
-      url "https://github.com/simpel/peek/releases/download/v1.2.0/peek-x86_64-apple-darwin.tar.gz"
-      sha256 "0e0e39d3a1df9d0b6376bfc365146468a0e65a7c4e9a528a22ed5c9f554f1138"
+      url "https://github.com/simpel/peek/releases/download/v1.2.1/peek-x86_64-apple-darwin.tar.gz"
+      sha256 "205707a2038b569dd36b904df6be959a7df022d0f7844278cb92e4a509565546"
     end
   end
 
@@ -19,10 +19,6 @@ class Peek < Formula
     bin.install "peekd"
     bin.install "peek-wrap"
     prefix.install "com.peek.daemon.plist"
-  end
-
-  def post_install
-    system bin/"peek", "setup"
   end
 
   service do
@@ -34,8 +30,10 @@ class Peek < Formula
 
   def caveats
     <<~EOS
-      peek has been added to your shell config.
-      Restart your terminal to activate.
+      To activate peek, run:
+        peek setup
+
+      Then restart your terminal.
     EOS
   end
 
