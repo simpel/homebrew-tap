@@ -12,9 +12,14 @@ cask "ruler" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Ruler.app"
+
+  zap trash: [
+    "~/Library/Preferences/com.github.simpel.ruler.plist",
+    "~/Library/Saved Application State/com.github.simpel.ruler.savedState",
+  ]
 
   caveats <<~EOS
     Ruler is not signed with an Apple Developer ID, so macOS quarantines it.
@@ -24,9 +29,4 @@ cask "ruler" do
 
     or open it from System Settings -> Privacy & Security -> Open Anyway.
   EOS
-
-  zap trash: [
-    "~/Library/Preferences/com.github.simpel.ruler.plist",
-    "~/Library/Saved Application State/com.github.simpel.ruler.savedState",
-  ]
 end
