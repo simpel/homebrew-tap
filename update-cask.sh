@@ -22,7 +22,12 @@ rm -rf "$TMP"
 /usr/bin/sed -i '' -E "s/^  version \".*\"$/  version \"$VERSION\"/" "$FILE"
 /usr/bin/sed -i '' -E "s/^  sha256 \".*\"$/  sha256 \"$SHA\"/" "$FILE"
 
+if git diff --quiet -- "$FILE"; then
+  echo "$CASK already points at $VERSION"
+  exit 0
+fi
+
 echo "$CASK -> $VERSION ($SHA)"
 git add "$FILE"
-git commit -m "$CASK $VERSION"
-echo "Commit made; push when ready:  git push"
+git commit -q -m "Update $CASK to $VERSION"
+echo "Committed; push when ready:  git push"
