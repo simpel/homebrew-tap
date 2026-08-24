@@ -11,11 +11,13 @@ FILE="Casks/$CASK.rb"
 
 TAG=$(gh release view --repo "$REPO" --json tagName --jq .tagName)
 VERSION="${TAG#v}"
+# Releases carry both a versioned DMG and an unversioned copy; the cask URL
+# points at the versioned one.
 ASSET=$(gh release view "$TAG" --repo "$REPO" --json assets \
-  --jq '.assets[] | select(.name | endswith(".dmg")) | .name')
+  --jq '.assets[] | select(.name | test("^[A-Za-z]+-[0-9].*\\.dmg$")) | .name' | head -1)
 
 TMP=$(mktemp -d)
-gh release download "$TAG" --repo "$REPO" --pattern "*.dmg" --dir "$TMP"
+gh release download "$TAG" --repo "$REPO" --pattern "$ASSET" --dir "$TMP"
 SHA=$(shasum -a 256 "$TMP/$ASSET" | cut -d' ' -f1)
 rm -rf "$TMP"
 
