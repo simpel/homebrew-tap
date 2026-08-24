@@ -1,6 +1,6 @@
 cask "ruler" do
-  version "1.1.0"
-  sha256 "06aa1aaad0602d9a77dab2f956e3373a1cfd59fca65a2bf5e888e3464117f2de"
+  version "1.2.0"
+  sha256 "5deda06555b1f364a81fdb5428bd6d6a4ed1171deebf97d7951d23c60eaf0bbd"
 
   url "https://github.com/simpel/ruler/releases/download/v#{version}/Ruler-#{version}.dmg"
   name "Ruler"
