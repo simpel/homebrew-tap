@@ -17,8 +17,8 @@ cask "ruler" do
   app "Ruler.app"
 
   zap trash: [
-    "~/Library/Preferences/com.github.simpel.ruler.plist",
-    "~/Library/Saved Application State/com.github.simpel.ruler.savedState",
+    "~/Library/Preferences/se.joelsanden.ruler.plist",
+    "~/Library/Saved Application State/se.joelsanden.ruler.savedState",
   ]
 
   caveats <<~EOS
