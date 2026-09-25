@@ -1,4 +1,4 @@
-cask "ruler" do
+cask "distanser" do
   version "1.3.1"
   sha256 "fb5c96242efb71020c23cf43861cbe6089ffcff64c57fee2adb4cd90d5df38db"
 
@@ -22,8 +22,6 @@ cask "ruler" do
   ]
 
   caveats <<~EOS
-    Ruler has been renamed to Distanser.
-
     Distanser is not signed with an Apple Developer ID, so macOS quarantines it.
     The first launch will be blocked; clear the flag once with
 
